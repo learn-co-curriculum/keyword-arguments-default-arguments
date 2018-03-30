@@ -1,7 +1,7 @@
 
 # Introduction to functions
 
-As we can accomplish more and more with code, we will want the ability to reuse these operations.  Functions will allow to do just that.  They also will also give us the ability to name a sequence of operations, thus making our code expressive.  Let's see how this works, and why something like this is useful.
+As we learn to accomplish more and more with our code, we want the ability to reuse our code to help us solve different problems.  Functions allow to do just that.  They also also give us the ability to name a sequence of operations, thus making our code expressive.  Let's see how this works, and why something like this is useful.
 
 ### Our problem so far 
 
@@ -11,6 +11,8 @@ Imagine that we have a group of employees who have just joined our company.
 ```python
 new_employees = ['jim', 'tracy', 'lisa']
 ```
+
+> Press shift + enter to run this code.
 
 We want to send each of them a nice welcoming message.  We could use a `for` loop to create a list of `welcome_messages`.
 
@@ -39,7 +41,7 @@ Then a couple of weeks later, a few more employees join, and we want to send mes
 new_employees = ['steven', 'jan', 'meryl']
 ```
 
-Well to do, we would have to copy our code from above.
+Well to accomplish, we would likely copy our code from above.
 
 
 ```python
@@ -59,7 +61,7 @@ welcome_messages
 
 
 
-If each time we wanted to reuse code we needed to copy and paste it, we would be having to maintain a lot more code than is necessary and each time we recopied it is another opportunity to make a mistake.  Now, what if there was a way to write that code just one time, yet be able to execute that code wherever and whenever we want?  Functions allow us to do just that.
+If each time we wanted to reuse code we needed to copy and paste it, we would be having to maintain a lot more code than is necessary.  Also, each time we recopied it is another opportunity to make a mistake.  So what if there was a way to write that code just one time, yet be able to execute that code wherever and whenever we want?  Functions allow us to do just that.
 
 Here is that same code wrapped in a function.
 
@@ -87,7 +89,7 @@ greet_employees()
 
 
 
-So note that there are two parts to a function.  Defining a function and executing a function.  The function is defined in the first block of code beginning with the keyword `def`.  However, declaring a function is like building a tool.  You do not put it to use until you use it.  To use, or execute the function, you write the name of the function followed by parentheses.  And note you can reuse the function as many times as you want.   
+So note that there are two parts to using a function: defining a function and executing a function.  Defining a function happens first, and afterwards when we call `greet_employees()` we execute the function.   
 
 
 ```python
@@ -104,7 +106,7 @@ greet_employees()
 
 
 
-Ok let's break down how to declare a function.
+Ok let's break down how to define, or declare, a function.  Then we talk about executing a function in more detail.
 
 ### Declaring and using functions
 
@@ -122,11 +124,20 @@ The function signature is the first line of the function.  It follows the patter
 
 `def name_of_function():`
 
-The `def` is there to tell Python that you are about to declare a function.  The name of the function is so we can reference the function later.  The colon is to end the function signature and indicate that next is the body of the function.  The parentheses are important as well, and we'll explain their use in a later lesson.
+The `def` is there to tell Python that you are about to declare a function.  The name of the function indicates how to reference and execute the function later.  The colon is to end the function signature and indicate that the body of the function is next.  The parentheses are important as well, and we'll explain their use in a later lesson.
 
 #### Function Body
 
-The function body is what the function does.  This is the code that will be run each time we execute the function.  We indicate that we are writing the function body by indenting.  To end the function body we stop indenting.  Let's execute the `name_of_function` function.
+The body of the function is what the function does.  This is the code that will be run each time we execute the function.  We indicate that we are writing the function body by going to the next line and indenting after the colon.  To complete the function body we stop indenting.  
+
+
+```python
+def name_of_function(): 
+    words = 'function body' # function body
+# no longer part of the function body
+```
+
+Let's execute the `name_of_function` function.
 
 
 ```python
@@ -157,24 +168,23 @@ To get something out of the function, we must use the return keyword, followed b
 
 ```python
 def other_function(): # signature
-    words = 'function body' # body
+    words = 'returned from inside the function body' # body
     return words
 ```
 
 
 ```python
 other_function()
-other_function()
 ```
 
 
 
 
-    'function body'
+    'returned from inside the function body'
 
 
 
-Much better.  So with the return statement we returned the string `'function body'`.
+Much better.  So with the return statement we returned the string `'returned from inside the function body'`.
 
 > We will devote an entire future lesson to what is available from inside and outside of the function.  So don't worry if it feels a little confusing right now.
 
@@ -190,23 +200,16 @@ def greet_employees(): # function signature
         welcome_messages.append("Hi " + new_employee.title() + ", I'm so glad to be working with you!" )
 
     return welcome_messages # return statement
+
+# no longer in function body
 ```
 
-As you can see the same components of the function: the function signature, function body, and return statement were in that function as well. Each time we call, `greet_employees()`, all of the lines in the body of the function are run.  However, only the return statement is accessible from outside of the function.
+As you can see, `greet_employees` has the same components of a function we identified earlier: the function signature, the function body, and the return statement. Each time we call, `greet_employees()`, all of the lines in the body of the function are run.  However, only the return statement is accessible from outside of the function.
 
 
 ```python
 greet_employees()
 ```
-
-
-
-
-    ["Hi Jan, I'm so glad to be working with you!",
-     "Hi Joe, I'm so glad to be working with you!",
-     "Hi Avi, I'm so glad to be working with you!"]
-
-
 
 ### Summary
 
